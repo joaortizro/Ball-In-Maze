@@ -12,24 +12,25 @@ Scene scene;
 Board board;
 Ball ball;
 WorldConstraint constraint ;
+int i=0;
+int j=0;
 void setup(){
-  size(800,500,P3D);
+  size(1000,500,P3D);
   scene = new Scene(this);
   //scene.setAxesVisualHint(false);
   //scene.setGridVisualHint(false);
   translate(width/2,height/2);
-  board= new Board(100);
+  board= new Board(200,4);
   ball = new Ball(5);
-  
-  constraint = new WorldConstraint();
-  constraint.setTranslationConstraint(AxisPlaneConstraint.Type.FORBIDDEN,new Vec(0.0f,0.0f,0.0f));
-  
-  scene.camera().setPosition(new Vec(-20, 100, 230)); 
+  scene.camera().setPosition(new Vec(-20, 100, 100)); 
   scene.camera().lookAt(new Vec(0, 0, 0));
+  //scene.eye().orientation().print();
+  
   
 }
 
 void draw (){
+  
 background(0);
 board.draw();
 ball.draw();
